@@ -4,7 +4,8 @@ download chromedriver matching your chrome browser version
 http://chromedriver.chromium.org/downloads
 > unpack to c:/\
 > or change the path in the UI-tab "General Settings"\
-> or change SUTConnectorValue in bin/settings/webdriver_generic/test.settings
+> or change SUTConnectorValue\
+in bin/settings/webdriver_generic/test.settings
 
 # Usage
 from UI > run bin/testar.bat
