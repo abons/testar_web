@@ -17,5 +17,9 @@ in the UI-tab "General Settings"
 > or change SUTConnectorValue\
 in bin/settings/webdriver_generic/test.settings
 >
-AND change domainsAllowed in bin/settings/webdriver_generic/Protocol_webdriver_generic.java
+AND change domainsAllowed\
+in bin/settings/webdriver_generic/Protocol_webdriver_generic.java
 
+# advice
+add this folder to editor (vsCode):/
+bin/settings
