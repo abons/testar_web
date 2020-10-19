@@ -7,10 +7,11 @@ http://chromedriver.chromium.org/downloads
 > or change SUTConnectorValue in bin/settings/webdriver_generic/test.settings
 
 # Usage
-> from UI > run bin/testar.bat
+from UI > run bin/testar.bat\
 > or use npm scripts inside bin/settings/webdriver_generic/package.json
 
 # Change website
-> in the UI-tab "General Settings" OR bin/settings/webdriver_generic/test.settings SUTConnectorValue
-> AND change domainsAllowed in bin/settings/webdriver_generic/Protocol_webdriver_generic.java
+in the UI-tab "General Settings"\
+> or change SUTConnectorValue in bin/settings/webdriver_generic/test.settings 
+AND change domainsAllowed in bin/settings/webdriver_generic/Protocol_webdriver_generic.java
 
