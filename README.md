@@ -8,7 +8,7 @@ http://chromedriver.chromium.org/downloads
 
 # Usage
 from UI > run bin/testar.bat
-> or use npm scripts inside bin/settings/webdriver_generic/package.json
+> or use npm script\ inside bin/settings/webdriver_generic/package.json
 
 # Change website
 in the UI-tab "General Settings"
