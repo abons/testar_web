@@ -21,5 +21,5 @@ AND change domainsAllowed\
 in bin/settings/webdriver_generic/Protocol_webdriver_generic.java
 
 # advice
-add this folder to editor (vsCode):/
+add this folder to editor (vsCode): 
 bin/settings
