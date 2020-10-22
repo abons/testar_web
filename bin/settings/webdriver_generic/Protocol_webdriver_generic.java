@@ -49,6 +49,7 @@ import static org.fruit.alayer.Tags.Blocked;
 import static org.fruit.alayer.Tags.Enabled;
 import static org.fruit.alayer.webdriver.Constants.scrollArrowSize;
 import static org.fruit.alayer.webdriver.Constants.scrollThick;
+import org.fruit.Util;
 
 
 public class Protocol_webdriver_generic extends WebdriverProtocol {
@@ -132,6 +133,11 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
   @Override
   protected void beginSequence(SUT system, State state) {
     super.beginSequence(system, state);
+    // fill username+password and click button with javascript
+    String scriptQuery = "document.getElementById('username').value='abons';document.getElementById('pass').value='welkom';document.getElementsByTagName('button')[1].click()";
+    WdDriver.executeScript(scriptQuery);
+    // wait for login to finish
+    Util.pause(3);
   }
 
   /**
