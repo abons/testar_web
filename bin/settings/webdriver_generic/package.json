@@ -1,7 +1,7 @@
 {
     "scripts": {
         "testar": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=true",
-        "testarGen": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=1 SequenceLength=5",
-        "testarSpy": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Spy"
+        "testarGen": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=1 SequenceLength=3 AlwaysCompile=true",
+        "testarSpy": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Spy AlwaysCompile=true"
     }
 }

@@ -4,7 +4,7 @@
 # Set the mode you want TESTAR to start in: Spy, Generate, Replay
 #################################################################
 
-Mode = Spy
+Mode = Generate
 
 #################################################################
 # Connect to the System Under Test (SUT)
@@ -23,7 +23,7 @@ Mode = Spy
 # The SUT must be manually started and closed.
 #################################################################
 SUTConnector = WEB_DRIVER
-SUTConnectorValue = "C:\\chromedriver.exe" "1920x900+0+0" "https://staging.yoobi.nl:8080/"
+SUTConnectorValue = "C:\\chromedriver.exe" "411x823+0+0" "http://localhost:8081"
 
 #################################################################
 # Java Swing applications & Access Bridge Enabled
@@ -191,7 +191,7 @@ TimeToFreeze = 30.0
 StateScreenshotSimilarityThreshold = 1.4E-45
 ShowVisualSettingsDialogOnStartup = true
 ResetDataStore = false
-TimeToWaitAfterAction = 0.1
+TimeToWaitAfterAction = 2.0
 DrawWidgetUnderCursor = true
 AlwaysCompile = true
 PathToReplaySequence = ./output/temp

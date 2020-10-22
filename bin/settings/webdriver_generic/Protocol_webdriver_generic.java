@@ -42,6 +42,7 @@ import org.fruit.alayer.webdriver.enums.WdTags;
 import org.fruit.monkey.ConfigTags;
 import org.fruit.monkey.Settings;
 import org.testar.protocols.WebdriverProtocol;
+import org.fruit.Util;
 
 import java.util.*;
 
@@ -54,7 +55,7 @@ import static org.fruit.alayer.webdriver.Constants.scrollThick;
 public class Protocol_webdriver_generic extends WebdriverProtocol {
   // Classes that are deemed clickable by the web framework
   private static List<String> clickableClasses = Arrays.asList(
-      "v-menubar-menuitem", "v-menubar-menuitem-caption");
+      "q-btn", "q-btn__content", "q-btn__wrapper", "q-toggle__track", "block");
 
   // Disallow links and pages with these extensions
   // Set to null to ignore this feature
@@ -65,7 +66,7 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
   // An empty list will be filled with the domain from the sut connector
   // Set to null to ignore this feature
   private static List<String> domainsAllowed =
-      Arrays.asList("staging.yoobi.nl:8080");
+      Arrays.asList("localhost:8081");
 
   // If true, follow links opened in new tabs
   // If false, stay with the original (ignore links opened in new tabs)
@@ -74,7 +75,7 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
   // URL + form name, username input id + value, password input id + value
   // Set login to null to disable this feature
   private static Pair<String, String> login = Pair.from(
-      "https://staging.yoobi.nl:8080/", "login");
+      "http://localhost:8081/#/login", "login");
   private static Pair<String, String> username = Pair.from("username", "abons");
   private static Pair<String, String> password = Pair.from("password", "welkom");
 
@@ -132,6 +133,10 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
   @Override
   protected void beginSequence(SUT system, State state) {
     super.beginSequence(system, state);
+    // System.out.println("ishere");
+    String scriptQuery = "setTimeout(function(){document.getElementsByTagName('button')[0].click()},5000)";
+    
+    WdDriver.executeScript(scriptQuery);
   }
 
   /**
