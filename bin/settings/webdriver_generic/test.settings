@@ -42,7 +42,7 @@ AccessBridgeEnabled = false
 # Number of sequences and the length of these sequences
 #################################################################
 
-Sequences = 1
+Sequences = 3
 SequenceLength = 5
 
 #################################################################

@@ -50,6 +50,7 @@ import static org.fruit.alayer.Tags.Blocked;
 import static org.fruit.alayer.Tags.Enabled;
 import static org.fruit.alayer.webdriver.Constants.scrollArrowSize;
 import static org.fruit.alayer.webdriver.Constants.scrollThick;
+import org.fruit.alayer.devices.*;
 
 
 public class Protocol_webdriver_generic extends WebdriverProtocol {
@@ -136,13 +137,17 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
     // WdDriver.executeScript("document.getElementsByClassName('q-field__native')[1].value='abons';");
     // Util.pause(3);
     // WdDriver.executeScript("document.getElementsByClassName('q-field__native')[2].value='welkom';");
-    // Util.pause(3);
-    WdDriver.executeScript("document.getElementsByTagName('button')[0].click();");
-    WdDriver.executeScript("document.getElementsByClassName('q-field__native')[1].value='abons';document.getElementsByClassName('q-field__native')[1].dispatchEvent(new Event('change'))");
-    WdDriver.executeScript("document.getElementsByClassName('q-field__native')[2].value='welkom';");
-    WdDriver.executeScript("document.getElementsByTagName('button')[0].click();");
+    // Util.pause(1);
+    // WdDriver.executeScript("document.getElementsByClassName('block')[0].click()");
+    CompoundAction.Builder builder = new CompoundAction.Builder();
+    builder.add(new KeyDown(KBKeys.VK_TAB) ,0.1);
+    builder.add(new Type("abons"),0.1);
+    builder.add(new KeyDown(KBKeys.VK_TAB) ,0.1);
+    builder.add(new Type("welkom"),0.1);
+    builder.add(new KeyDown(KBKeys.VK_ENTER) ,0.1);
+    builder.build().run(system ,null ,0.1);
     // wait for login to finish
-    // Util.pause(3);
+    Util.pause(3);
     super.beginSequence(system, state);
   }
 
