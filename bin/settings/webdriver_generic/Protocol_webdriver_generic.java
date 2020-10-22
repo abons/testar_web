@@ -74,10 +74,9 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 
   // URL + form name, username input id + value, password input id + value
   // Set login to null to disable this feature
-  private static Pair<String, String> login = Pair.from(
-      "http://localhost:8081/#/login", "login");
-  private static Pair<String, String> username = Pair.from("username", "abons");
-  private static Pair<String, String> password = Pair.from("password", "welkom");
+  private static Pair<String, String> login = null;
+  private static Pair<String, String> username = Pair.from("usern", "abons");
+  private static Pair<String, String> password = Pair.from("passw", "welkom");
 
   // List of atributes to identify and close policy popups
   // Set to null to disable this feature
@@ -132,11 +131,19 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
    */
   @Override
   protected void beginSequence(SUT system, State state) {
+    // Util.pause(3);
+    // fill username+password and click button with javascript
+    // WdDriver.executeScript("document.getElementsByClassName('q-field__native')[1].value='abons';");
+    // Util.pause(3);
+    // WdDriver.executeScript("document.getElementsByClassName('q-field__native')[2].value='welkom';");
+    // Util.pause(3);
+    WdDriver.executeScript("document.getElementsByTagName('button')[0].click();");
+    WdDriver.executeScript("document.getElementsByClassName('q-field__native')[1].value='abons';document.getElementsByClassName('q-field__native')[1].dispatchEvent(new Event('change'))");
+    WdDriver.executeScript("document.getElementsByClassName('q-field__native')[2].value='welkom';");
+    WdDriver.executeScript("document.getElementsByTagName('button')[0].click();");
+    // wait for login to finish
+    // Util.pause(3);
     super.beginSequence(system, state);
-    // System.out.println("ishere");
-    String scriptQuery = "setTimeout(function(){document.getElementsByTagName('button')[0].click()},5000)";
-    
-    WdDriver.executeScript(scriptQuery);
   }
 
   /**
