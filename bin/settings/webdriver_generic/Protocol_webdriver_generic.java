@@ -54,6 +54,7 @@ import org.fruit.Util;
 
 public class Protocol_webdriver_generic extends WebdriverProtocol {
   // Classes that are deemed clickable by the web framework
+  // TODO clickableClasses
   private static List<String> clickableClasses = Arrays.asList(
       "v-menubar-menuitem", "v-menubar-menuitem-caption");
 
@@ -65,6 +66,7 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
   // Define a whitelist of allowed domains for links and pages
   // An empty list will be filled with the domain from the sut connector
   // Set to null to ignore this feature
+  // TODO url domainsAllowed
   private static List<String> domainsAllowed =
       Arrays.asList("staging.yoobi.nl:8080");
 
@@ -132,12 +134,18 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
    */
   @Override
   protected void beginSequence(SUT system, State state) {
+    // START SUT
     super.beginSequence(system, state);
+    // TODO login
     // fill username+password and click button with javascript
     String scriptQuery = "document.getElementById('username').value='abons';document.getElementById('pass').value='welkom';document.getElementsByTagName('button')[1].click()";
     WdDriver.executeScript(scriptQuery);
     // wait for login to finish
     Util.pause(3);
+    // TODO test specific part 1/2
+    WdDriver.executeScript("location.href='vue#/admin'");
+    // wait for load
+    Util.pause(1);
   }
 
   /**
@@ -151,8 +159,8 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
    */
   @Override
   protected State getState(SUT system) throws StateBuildException {
+    // SCAN GUI
     State state = super.getState(system);
-
     return state;
   }
 
@@ -370,6 +378,8 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
    * Check if the URL is denied
    */
   private boolean isUrlDenied(String currentUrl) {
+    // TODO test specific part 2/2
+    if(!currentUrl.contains("/admin")) { return true; }
     if (currentUrl.startsWith("mailto:")) {
       return true;
     }
