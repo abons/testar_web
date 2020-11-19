@@ -42,8 +42,8 @@ AccessBridgeEnabled = false
 # Number of sequences and the length of these sequences
 #################################################################
 
-Sequences = 3
-SequenceLength = 10
+Sequences = 1
+SequenceLength = 5
 
 #################################################################
 # Oracles based on suspicious titles
