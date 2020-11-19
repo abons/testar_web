@@ -4,7 +4,7 @@
 # Set the mode you want TESTAR to start in: Spy, Generate, Replay
 #################################################################
 
-Mode = Generate
+Mode = Spy
 
 #################################################################
 # Connect to the System Under Test (SUT)
@@ -21,20 +21,13 @@ Mode = Generate
 #
 # SUTCONNECTOR = SUT_PROCESS_NAME: SUTConnectorValue property must be the process name of the SUT.
 # The SUT must be manually started and closed.
+#
+# SUTCONNECTOR = WEB_DRIVER: SUTConnectorValue property consists of webdriver path and web url
+# Format : <path of webdriver> [optional size/position] <url of web application>
+# Example format for the dimensions and position : 1920x1000+1680+0
 #################################################################
 SUTConnector = WEB_DRIVER
 SUTConnectorValue = "C:\\chromedriver.exe" "1920x900+0+0" "https://staging.yoobi.nl:8080"
-
-#################################################################
-# Java Swing applications & Access Bridge Enabled
-#
-# Activate the Java Access Bridge in your Windows System:
-#		(Control Panel / Ease of Access / Ease of Access Center / Make the computer easier to see)
-#
-# Enable the variable Access Bridge Enabled in TESTAR as true
-#################################################################
-
-AccessBridgeEnabled = false
 
 #################################################################
 # Sequences
@@ -69,11 +62,11 @@ SuspiciousProcessOutput = .*[eE]rror.*|.*[eE]xcep[ct]i[o?]n.*
 #################################################################
 # Process Logs
 #
-# Required ProcessListenerEnabled
+# Requires ProcessListenerEnabled
 # (Only available for desktop applications through COMMAND_LINE)
 #
 # Allow TESTAR to store execution logs coming from the processes.
-# You can use the regular expression ProcessLogs below to filter
+# You can use the regular expression ProcessLogs below to filter 
 # the logs. Use .*.* if you want to store all the outputs of the 
 # process.
 #################################################################
@@ -96,7 +89,7 @@ ClickFilter = .*[sS]ave.*|.*[gG]uardar.*|.*[fF]ormat.*|.*[fF]ormatear.*|.*[pP]ri
 # but that you do not want to test.
 #################################################################
 
-SUTProcesses = 
+SUTProcesses =
 
 #################################################################
 # Protocolclass
@@ -107,49 +100,24 @@ SUTProcesses =
 ProtocolClass = webdriver_generic/Protocol_webdriver_generic
 
 #################################################################
-# Graphdatabase settings (experimental)
-#################################################################
-GraphDBEnabled = false
-GraphDBUrl = 
-GraphDBUser = 
-GraphDBPassword = 
-
-#################################################################
-# State model inference settings
-#################################################################
-StateModelEnabled = false
-DataStore = 
-DataStoreType = remote
-DataStoreServer = 
-DataStoreDirectory = 
-DataStoreDB = 
-DataStoreUser = 
-DataStorePassword = 
-DataStoreMode = none
-ApplicationName = 
-ApplicationVersion = 
-ActionSelectionAlgorithm = random
-StateModelStoreWidgets = true
-
-#################################################################
 # State identifier attributes
 #
 # Specify the widget attributes that you wish to use in constructing
 # the widget and state hash strings. Use a comma separated list.
 #################################################################
-AbstractStateAttributes = WidgetControlType
+AbstractStateAttributes = WebWidgetId
 
 #################################################################
 # Override display scale
 #
-# Overrides the displayscale obtained from the system.
-# Can solve problems when the mouse clicks are not aligned with
+# Overrides the displayscale obtained from the system. 
+# Can solve problems when the mouse clicks are not aligned with 
 # the elements on the screen. This can easily be detected when
 # running the spy mode. For example hover over a text element and
-# the popup window should appear with information about the
+# the popup window should appear with information about the 
 # element, if the popup window is not shown or when the mouse is
 # located somewhere else you can try to override the displayscale
-# Values should be provided as doubles (1.5).
+# Values should be provided as doubles (1.5). 
 #################################################################
 
 OverrideWebDriverDisplayScale = 
@@ -157,45 +125,34 @@ OverrideWebDriverDisplayScale =
 #################################################################
 # Other more advanced settings
 #################################################################
-TypingTextsForExecutedAction = 10
-Discount = 0.95
+
+ProcessesToKillDuringTest =
+OutputDir = ./output
+PathToReplaySequence = ./output/temp
 TempDir = ./output/temp
-MaxTime = 3.1536E7
-StopGenerationOnFault = true
-ExecuteActions = true
-DrawWidgetTree = false
 UseRecordedActionDurationAndWaitTimeDuringReplay = false
 ForceForeground = true
-AlgorithmFormsFilling = false
-FaultThreshold = 1.0E-9
-DrawWidgetInfo = false
-MaxReward = 9999999.0
 LogLevel = 1
-VisualizeSelectedAction = true
-Delete = 
-MyClassPath = ./settings
-ReplayRetryTime = 30.0
-ProcessesToKillDuringTest = 
-ShowSettingsAfterTest = true
-ForceToSequenceLength = true
-OutputDir = ./output
-UnattendedTests = false
-TestGenerator = random
-StartupTime = 2.0
-ActionDuration = 0.1
-NonReactingUIThreshold = 100
-GraphsActivated = true
-GraphResuming = true
-CopyFromTo = 
-TimeToFreeze = 30.0
-StateScreenshotSimilarityThreshold = 1.4E-45
-ShowVisualSettingsDialogOnStartup = true
-ResetDataStore = false
-TimeToWaitAfterAction = 0.1
+ExecuteActions = true
+FaultThreshold = 1.0E-9
 DrawWidgetUnderCursor = true
-AlwaysCompile = true
-PathToReplaySequence = D:\\werk\\testar_web\\bin\\output\\2020-10-22_14h06m23s_\\sequences\\2020-10-22_14h06m23s__sequence_1.testar
-VisualizeActions = false
-ExplorationSampleInterval = 1
+MyClassPath = ./settings
 OnlySaveFaultySequences = false
-OfflineGraphConversion = true
+ActionDuration = 0.1
+ShowVisualSettingsDialogOnStartup = true
+ReplayRetryTime = 30.0
+Delete =
+MaxTime = 3.1536E7
+ShowSettingsAfterTest = true
+TimeToWaitAfterAction = 0.1
+StartupTime = 2.0
+DrawWidgetInfo = false
+TimeToFreeze = 30.0
+StopGenerationOnFault = true
+CopyFromTo =
+VisualizeActions = false
+VisualizeSelectedAction = true
+TestGenerator = random
+MaxReward = 9999999
+Discount = .95
+RefreshSpyCanvas = 1.0
