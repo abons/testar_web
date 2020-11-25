@@ -52,8 +52,10 @@ import static org.fruit.alayer.webdriver.Constants.scrollThick;
 import org.fruit.Util;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
-import org.openqa.selenium.logging.LogEntry;
-
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.remote.*;
+import org.openqa.selenium.WebDriver.TargetLocator;
 
 public class Protocol_webdriver_generic extends WebdriverProtocol {
 
@@ -141,7 +143,7 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 	    // wait for login to finish
 	    Util.pause(3);
 	    // TODO test specific part 1/2
-	    WdDriver.executeScript("location.href='vue#/list/employee'");
+	    WdDriver.executeScript("location.href='vue#/frame/systempreferences/index'");
 	    // wait for load
 	    Util.pause(1);
 	}
@@ -178,8 +180,21 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 		//-----------------------------------------------------------------------------
 		// MORE SOPHISTICATED ORACLES CAN BE PROGRAMMED HERE (the sky is the limit ;-)
 		//-----------------------------------------------------------------------------
+		// TODO stop on dump
+		RemoteWebDriver driver = WdDriver.getRemoteWebDriver();
+		List<WebElement> iframe = driver.findElements(By.tagName("iframe"));
+		if(iframe.size() > 0) {
+			System.out.println(driver.findElement(By.tagName("iframe")));
+			driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+			List<WebElement> luceedumps = driver.findElements(By.className("luceeN0"));
+			if(luceedumps.size() > 0) {
+				processVerdict = new Verdict(Verdict.SEVERITY_FAIL, "cfdump found");
+			}
+			driver.switchTo().defaultContent();
+		}
+		// System.out.println(luceedumps.size());
 		//TODO stop on js error
-		LogEntries logEntries = WdDriver.getRemoteWebDriver().manage().logs().get("browser");
+		LogEntries logEntries = driver.manage().logs().get("browser");
 		for (LogEntry entry : logEntries) {
 			System.out.println("* log: "+new Date(entry.getTimestamp()));
 			System.out.println("** lvl: "+entry.getLevel());
@@ -227,7 +242,7 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 		if(forcedActions == null) {
 			String currentUrl = WdDriver.getCurrentUrl();
 			// TODO test specific part 2/2
-			if(!currentUrl.contains("/employee")) { 
+			if(!currentUrl.contains("/systempreferences")) { 
 				forcedActions = new HashSet<>(Collections.singletonList(new WdHistoryBackAction()));
 			}
 		}
