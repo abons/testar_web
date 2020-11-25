@@ -141,7 +141,7 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 	    // wait for login to finish
 	    Util.pause(3);
 	    // TODO test specific part 1/2
-	    WdDriver.executeScript("location.href='vue#/employee'");
+	    WdDriver.executeScript("location.href='vue#/list/employee'");
 	    // wait for load
 	    Util.pause(1);
 	}
@@ -168,7 +168,7 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 	 *
 	 * @return oracle verdict, which determines whether the state is erroneous and why.
 	 */
-	String customError = "";
+	// String customError = "";
 	@Override
 	protected Verdict getVerdict(State state) {
 
@@ -178,19 +178,24 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 		//-----------------------------------------------------------------------------
 		// MORE SOPHISTICATED ORACLES CAN BE PROGRAMMED HERE (the sky is the limit ;-)
 		//-----------------------------------------------------------------------------
+		//TODO stop on js error
 		LogEntries logEntries = WdDriver.getRemoteWebDriver().manage().logs().get("browser");
 		for (LogEntry entry : logEntries) {
 			System.out.println("* log: "+new Date(entry.getTimestamp()));
 			System.out.println("** lvl: "+entry.getLevel());
 			System.out.println("** msg: "+entry.getMessage());
-			if(entry.getLevel().toString() == "SEVERE") { customError = entry.toString(); }
+			if(entry.getLevel().toString() == "SEVERE") { 
+				// customError = entry.toString();
+				processVerdict = new Verdict(Verdict.SEVERITY_FAIL, "console.error: "+ entry.toString());
+			}
 			// verdict = verdict.join(customverdict);
 			// state.set(Tags.OracleVerdict, new Verdict(Verdict.SEVERITY_WARNING, "WEBDRIVER CONSOLE SHOWING ERROR"));
 		}
+		verdict = verdict.join(processVerdict);
 		// requires workaround but it works now
-		if(customError != "") {
-			verdict = new Verdict(Verdict.SEVERITY_FAIL, customError);
-		}
+		// if(customError != "") {
+		// 	verdict = new Verdict(Verdict.SEVERITY_FAIL, customError);
+		// }
 		// ... YOU MAY WANT TO CHECK YOUR CUSTOM ORACLES HERE ...
 		return verdict;
 	}
