@@ -173,27 +173,35 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 	// String customError = "";
 	@Override
 	protected Verdict getVerdict(State state) {
-
 		Verdict verdict = super.getVerdict(state);
 		// system crashes, non-responsiveness and suspicious titles automatically detected!
 
 		//-----------------------------------------------------------------------------
 		// MORE SOPHISTICATED ORACLES CAN BE PROGRAMMED HERE (the sky is the limit ;-)
 		//-----------------------------------------------------------------------------
-		// TODO stop on dump
+		// TODO stop on missing label or dump
 		RemoteWebDriver driver = WdDriver.getRemoteWebDriver();
-		List<WebElement> iframe = driver.findElements(By.tagName("iframe"));
-		if(iframe.size() > 0) {
-			System.out.println(driver.findElement(By.tagName("iframe")));
-			driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
-			List<WebElement> luceedumps = driver.findElements(By.className("luceeN0"));
-			if(luceedumps.size() > 0) {
-				processVerdict = new Verdict(Verdict.SEVERITY_FAIL, "cfdump found");
+		try {
+			List<WebElement> iframe = driver.findElements(By.tagName("iframe"));
+			if(iframe.size() > 0) {
+				// System.out.println(driver.findElement(By.tagName("iframe")));
+				driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+				if(driver.findElement(By.tagName("body")).getText().indexOf("_UNKNOWN") != -1){
+					processVerdict = new Verdict(Verdict.SEVERITY_FAIL, "unknown translation found");
+				}
+				List<WebElement> luceedumps = driver.findElements(By.className("luceeN0"));
+				if(luceedumps.size() > 0) {
+					processVerdict = new Verdict(Verdict.SEVERITY_FAIL, "cfdump found");
+				}
 			}
-			driver.switchTo().defaultContent();
+		}
+		catch(Exception e) {
+			System.out.println("error in label or cfdump");
+			System.out.println(e);
 		}
 		// System.out.println(luceedumps.size());
 		//TODO stop on js error
+		driver = WdDriver.getRemoteWebDriver();
 		LogEntries logEntries = driver.manage().logs().get("browser");
 		for (LogEntry entry : logEntries) {
 			System.out.println("* log: "+new Date(entry.getTimestamp()));
