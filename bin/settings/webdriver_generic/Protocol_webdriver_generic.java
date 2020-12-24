@@ -143,7 +143,7 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 	    // wait for login to finish
 	    Util.pause(3);
 	    // TODO test specific part 1/2
-	    WdDriver.executeScript("location.href='vue#/frame/systempreferences/index'");
+	    // WdDriver.executeScript("location.href='vue#/frame/systempreferences/index'");
 	    // wait for load
 	    Util.pause(1);
 	}
@@ -250,9 +250,9 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 		if(forcedActions == null) {
 			String currentUrl = WdDriver.getCurrentUrl();
 			// TODO test specific part 2/2
-			if(!currentUrl.contains("/systempreferences")) { 
-				forcedActions = new HashSet<>(Collections.singletonList(new WdHistoryBackAction()));
-			}
+			// if(!currentUrl.contains("/systempreferences")) { 
+			// 	forcedActions = new HashSet<>(Collections.singletonList(new WdHistoryBackAction()));
+			// }
 		}
 
 		if (forcedActions != null && forcedActions.size() > 0) {
