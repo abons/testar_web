@@ -1,5 +1,12 @@
-# testar_web
+# Automatisch testen van Yoobi
+Master = https://staging.yoobi.nl:8080
+Localhost = mobiel web
+testar gui = "npm run testar"
+start testing = "npm run testarGen"
+view results in vscode = "npm run showErrors"
+zie ook package.json in testar_web\bin\settings\webdriver_generic
 
+# testar_web getting started
 download chromedriver matching your chrome browser version
 http://chromedriver.chromium.org/downloads
 > unpack to c:/\
