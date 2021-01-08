@@ -131,6 +131,7 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 	protected void beginSequence(SUT system, State state) {
 		// TODO login
 	    CompoundAction.Builder builder = new CompoundAction.Builder();
+	    builder.add(new Type("e-dynamicsbv"),0.1);
 	    builder.add(new KeyDown(KBKeys.VK_TAB) ,0.1);
 	    builder.add(new Type("abons"),0.1);
 	    builder.add(new KeyDown(KBKeys.VK_TAB) ,0.1);
