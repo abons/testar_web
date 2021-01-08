@@ -1,5 +1,5 @@
 # Automatisch testen van Yoobi
-Master = https://staging.yoobi.nl:8080\
+Master = https://staging.yoobi.nl:8080 \
 Localhost = mobiel web\
 testar gui = "npm run testar"\
 start testing = "npm run testarGen"\
