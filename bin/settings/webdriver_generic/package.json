@@ -7,6 +7,7 @@
         "showErrors": "cd ../../ && code -r index.log",
         "openErrorFolder": "cd ../../output && start .",
         "editUrl": "code -g test.settings:26",
-        "editOracles": "code -g test.settings:54"
+        "editOracles": "code -g test.settings:54",
+        "iris": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=1 SequenceLength=5 ProtocolSpecificSetting_1=ikeim"
     }
 }
