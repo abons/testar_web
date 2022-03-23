@@ -1,13 +1,16 @@
 {
     "scripts": {
         "testar": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=true",
-        "testarGen": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=20 SequenceLength=20",
+        "testarGen": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=40 SequenceLength=50",
         "testarSpy": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Spy AlwaysCompile=true",
         "testarReplay": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Replay AlwaysCompile=true PathToReplaySequence=./output/2020-11-19_08h14m22s_/sequences/2020-11-19_08h14m22s__sequence_1.testar",
-        "showErrors": "cd ../../ && code -r index.log",
+        "showLogs": "cd ../../ && code -r index.log",
+        "addErrors": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./getfilteredErrors.ps1",
+        "showErrors": "code -r errors.log",
         "openErrorFolder": "cd ../../output && start .",
         "editUrl": "code -g test.settings:26",
         "editOracles": "code -g test.settings:54",
-        "iris": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=1 SequenceLength=5 ProtocolSpecificSetting_1=ikeim"
+        "iris": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=1 SequenceLength=5 ProtocolSpecificSetting_1=axel",
+        "adm": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=1 SequenceLength=5 ProtocolSpecificSetting_1=administrator"
     }
 }
