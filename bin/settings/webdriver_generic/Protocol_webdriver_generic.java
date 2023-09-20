@@ -147,7 +147,7 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 		String user = settings.get(ConfigTags.ProtocolSpecificSetting_1);
 		System.out.println(user);
 		if(user.isEmpty()) user = "iris";
-	    String scriptQuery = "document.getElementById('username').value='"+user+"';document.getElementById('pass').value='welkom';document.getElementsByTagName('button')[0].click()";
+	    String scriptQuery = "document.getElementById('username').value='"+user+"';document.getElementById('pass').value='Welkom1!';document.getElementsByTagName('button')[0].click()";
 	    WdDriver.executeScript(scriptQuery);
 	    // wait for login to finish
 	    Util.pause(3);
