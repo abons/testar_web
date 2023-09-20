@@ -13,8 +13,8 @@ jobs:
   
       - name: Install Chrome for testing
         run: |
-          export PUPPETEER_EXECUTABLE_PATH=/opt/google/chrome/google-chrome
-          export PUPPETEER_PRODUCT=chrome
+          # export PUPPETEER_EXECUTABLE_PATH=/opt/google/chrome/google-chrome
+          # export PUPPETEER_PRODUCT=chrome
           npm install puppeteer
 
       - name: testar
