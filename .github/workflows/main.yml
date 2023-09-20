@@ -19,5 +19,5 @@ jobs:
 
       - name: testar
         run: |
-          # bin/settings/webdriver_generic/ 
+          cd ./bin/settings/webdriver_generic/ 
           npm run testarGen
