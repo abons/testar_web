@@ -20,5 +20,5 @@ jobs:
       - name: testar
         run: |
           cd ./bin 
-          testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=40 SequenceLength=50
+          .\testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=40 SequenceLength=50
           # npm run testarGen
