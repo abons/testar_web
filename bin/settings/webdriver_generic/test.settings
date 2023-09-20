@@ -24,7 +24,7 @@ Mode = Generate
 #################################################################
 SUTConnector = WEB_DRIVER
 # SUTConnectorValue = "C:\\chromedriver.exe" "1920x900+0+0" "https://devtest100.yoobi.nl"
-SUTConnectorValue = "1920x900+0+0" "https://devtest100.yoobi.nl"
+SUTConnectorValue = "chromedriver" "1920x900+0+0" "https://devtest100.yoobi.nl"
 
 #################################################################
 # Java Swing applications & Access Bridge Enabled
