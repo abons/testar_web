@@ -1,0 +1,23 @@
+name: Run testar
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+  
+      - name: Install Chrome for testing
+        run: |
+          export PUPPETEER_EXECUTABLE_PATH=/opt/google/chrome/google-chrome
+          export PUPPETEER_PRODUCT=chrome
+          npm install puppeteer
+
+      - name: testar
+        run: |
+          # bin/settings/webdriver_generic/ 
+          npm run testarGen
