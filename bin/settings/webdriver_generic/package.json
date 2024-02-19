@@ -2,15 +2,18 @@
     "scripts": {
         "testar": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=true",
         "testarGen": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=40 SequenceLength=50",
-        "testarSpy": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Spy AlwaysCompile=true",
-        "testarReplay": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Replay AlwaysCompile=true PathToReplaySequence=./output/2020-11-19_08h14m22s_/sequences/2020-11-19_08h14m22s__sequence_1.testar",
         "showLogs": "cd ../../ && code -r index.log",
         "addErrors": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./getfilteredErrors.ps1",
         "showErrors": "code -r errors.log",
         "openErrorFolder": "cd ../../output && start .",
         "editUrl": "code -g test.settings:26",
         "editOracles": "code -g test.settings:54",
-        "iris": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=1 SequenceLength=5 ProtocolSpecificSetting_1=axel",
-        "adm": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Mode=Generate Sequences=1 SequenceLength=5 ProtocolSpecificSetting_1=administrator"
+        "iris": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Sequences=1 SequenceLength=5 ProtocolSpecificSetting_1=axel",
+        "adm": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Sequences=1 SequenceLength=5 ProtocolSpecificSetting_1=administrator",
+        "dev10": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false SUTConnectorValue=\"C://chromedriver.exe https://devtest10.yoobi.axel\"",
+        "big1": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false SUTConnectorValue=\"C://chromedriver.exe https://nelissenbv.yoobi-sandbox.nl\" ProtocolSpecificSetting_1=e.vandennieuwenhof@nelissenbv.nl",
+        "big2": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false SUTConnectorValue=\"C://chromedriver.exe https://ortageo.yoobi-sandbox.nl\" ProtocolSpecificSetting_1=d.hendriks",
+        "big3": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false SUTConnectorValue=\"C://chromedriver.exe https://sagro.yoobi-sandbox.nl\" ProtocolSpecificSetting_1=jnoordermeer",
+        "big4": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false SUTConnectorValue=\"C://chromedriver.exe https://ab-ovo.yoobi-sandbox.nl\" ProtocolSpecificSetting_1=yoobiadmin.alex.deruiter@ab-ovo.com"
     }
 }

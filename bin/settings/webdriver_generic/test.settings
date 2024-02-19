@@ -23,8 +23,7 @@ Mode = Generate
 # The SUT must be manually started and closed.
 #################################################################
 SUTConnector = WEB_DRIVER
-# SUTConnectorValue = "C:\\chromedriver.exe" "1920x900+0+0" "https://devtest100.yoobi.nl"
-SUTConnectorValue = "chromedriver" "1920x900+0+0" "https://devtest100.yoobi.nl"
+SUTConnectorValue = c:\\test\\chromedriver.exe https://devtest01.yoobi.axel/
 
 #################################################################
 # Java Swing applications & Access Bridge Enabled
@@ -43,8 +42,8 @@ AccessBridgeEnabled = false
 # Number of sequences and the length of these sequences
 #################################################################
 
-Sequences = 1
-SequenceLength = 20
+Sequences = 10
+SequenceLength = 100
 
 #################################################################
 # Oracles based on suspicious titles
@@ -165,7 +164,7 @@ OverrideWebDriverDisplayScale =
 # Settings (string) that can be used for user specified protocols
 #################################################################
 
-ProtocolSpecificSetting_1 = 
+ProtocolSpecificSetting_1 = administrator
 ProtocolSpecificSetting_2 = 
 ProtocolSpecificSetting_3 = 
 ProtocolSpecificSetting_4 = 
@@ -218,6 +217,7 @@ TimeToFreeze = 30.0
 StateScreenshotSimilarityThreshold = 1.4E-45
 ShowVisualSettingsDialogOnStartup = true
 ResetDataStore = false
+https = //devtest10.yoobi-sandbox.nl/
 TimeToWaitAfterAction = 0.1
 DrawWidgetUnderCursor = true
 FlashFeedback = true
