@@ -4,7 +4,7 @@
 # Set the mode you want TESTAR to start in: Spy, Generate, Replay
 #################################################################
 
-Mode = Generate
+Mode = Spy
 
 #################################################################
 # Connect to the System Under Test (SUT)
@@ -23,7 +23,7 @@ Mode = Generate
 # The SUT must be manually started and closed.
 #################################################################
 SUTConnector = WEB_DRIVER
-SUTConnectorValue = c:\\test\\chromedriver.exe https://devtest01.yoobi.axel/
+SUTConnectorValue = c:\\test\\chromedriver.exe https://devtest01.yoobi-test.nl/
 
 #################################################################
 # Java Swing applications & Access Bridge Enabled
@@ -89,7 +89,7 @@ ProcessLogs = .*.*
 # these will be added to the protocol_filter.xml file.
 #################################################################
 
-ClickFilter = .*[sS]ave.*|.*[gG]uardar.*|.*[fF]ormat.*|.*[fF]ormatear.*|.*[pP]rint.*|.*[iI]mprimir.*|.*[eE]mail.*|.*[fF]ile.*|.*[aA]rchivo.*|.*[mM]inimize.*|.*[mM]inimizar.*|.*[dD]isconnect.*|.*[dD]esconectar.*|reinit
+ClickFilter = .*[sS]ave.*|.*[gG]uardar.*|.*[fF]ormat.*|.*[fF]ormatear.*|.*[pP]rint.*|.*[iI]mprimir.*|.*[eE]mail.*|.*[fF]ile.*|.*[aA]rchivo.*|.*[mM]inimize.*|.*[mM]inimizar.*|.*[dD]isconnect.*|.*[dD]esconectar.*|.*einit.*|.*Dagelijks.*|.*PerformTask.*|.*DB Scripts.*|.*empty Queue.*|.*Labels.*|.*Trigger logoutpopup.*|.*API documentatie.*|.*klik om te uploaden.*
 TagsToFilter = Title;WebName;WebTagName
 
 #################################################################
@@ -164,7 +164,7 @@ OverrideWebDriverDisplayScale =
 # Settings (string) that can be used for user specified protocols
 #################################################################
 
-ProtocolSpecificSetting_1 = administrator
+ProtocolSpecificSetting_1 = iris
 ProtocolSpecificSetting_2 = 
 ProtocolSpecificSetting_3 = 
 ProtocolSpecificSetting_4 = 

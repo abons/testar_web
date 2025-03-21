@@ -8,7 +8,7 @@
         "openErrorFolder": "cd ../../output && start .",
         "editUrl": "code -g test.settings:26",
         "editOracles": "code -g test.settings:54",
-        "iris": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Sequences=1 SequenceLength=5 ProtocolSpecificSetting_1=axel",
+        "iris": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Sequences=400 SequenceLength=50 ProtocolSpecificSetting_1=iris",
         "adm": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false Sequences=1 SequenceLength=5 ProtocolSpecificSetting_1=administrator",
         "dev10": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false SUTConnectorValue=\"C://chromedriver.exe https://devtest10.yoobi.axel\"",
         "big1": "cd ../../ && testar sse=Protocol_webdriver_generic ShowVisualSettingsDialogOnStartup=false SUTConnectorValue=\"C://chromedriver.exe https://nelissenbv.yoobi-sandbox.nl\" ProtocolSpecificSetting_1=e.vandennieuwenhof@nelissenbv.nl",

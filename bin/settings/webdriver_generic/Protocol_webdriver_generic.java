@@ -147,7 +147,7 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 		String user = settings.get(ConfigTags.ProtocolSpecificSetting_1);
 		System.out.println(user);
 		if(user.isEmpty()) user = "iris";
-	    String scriptQuery = "document.getElementById('username').value='"+user+"';document.getElementById('pass').value='Welkom1!';document.getElementsByTagName('button')[0].click()";
+	    String scriptQuery = "document.getElementById('username').value='"+user+"';document.getElementById('pass').value='z4@qvP3S660N';document.getElementsByTagName('button')[0].click()";
 	    WdDriver.executeScript(scriptQuery);
 	    // wait for login to finish
 	    Util.pause(3);
@@ -181,6 +181,10 @@ public class Protocol_webdriver_generic extends WebdriverProtocol {
 	 */
 	@Override
 	protected Verdict getVerdict(State state) {
+
+		//TODO xss injection test
+		String scriptQuery = "if(document.activeElement && document.activeElement.tagName === 'INPUT' && document.activeElement.type === 'text') { document.activeElement.value='<img src=\"x\" onerror=\"console.error(117)\">' }";
+		WdDriver.executeScript(scriptQuery);
 
 		Verdict verdict = super.getVerdict(state);
 		// system crashes, non-responsiveness and suspicious titles automatically detected!
